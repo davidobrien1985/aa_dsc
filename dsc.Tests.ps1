@@ -8,7 +8,7 @@ Describe "dsc" {
     
     Context 'tests if all DSC Resources are available' {
         It 'tests if PSDesiredStateConfiguration module is available' {
-            Get-Module -Name PSDesiredStateConfiguration | Should be $true
+            Get-Module -Name PSDesiredStateConfiguration -ListAvailable | Should be $true
         }
         It 'tests if cChocoInstaller resource is available' {
             Get-DscResource -Name cChocoInstaller | Should be $true
@@ -19,11 +19,11 @@ Describe "dsc" {
     }
     Context 'DSC compilation tests' {
         It 'compiles the Configuration to a valid MOF' {
-            {web -outputpath Testdrive:\} | Should not throw
+            {trivialweb -outputpath Testdrive:\} | Should not throw
         }
         It 'tests if the MOF actually exists' {
             {
-                web -outputpath Testdrive:\
+                trivialweb -outputpath Testdrive:\
                 Test-Path Testdrive:\localhost.mof
             } | Should be $true
         }
