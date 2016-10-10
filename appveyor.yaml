@@ -7,6 +7,8 @@ install:
     Install-Module Pester -Verbose -Force
     Install-Module cchoco -Verbose -Force
     Install-Module xNetworking -Verbose -Force
+    Install-Module AzureRM.profile -Verbose -Force
+    Install-Module AzureRM.Automation -version -Force
 test_script:
     - ps: |
         $testResultsFile = ".\TestsResults.xml"
