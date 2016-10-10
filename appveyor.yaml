@@ -15,6 +15,7 @@ test_script:
         if ($res.FailedCount -gt 0) {
             throw "$($res.FailedCount) tests failed."
         }
+build: off
 notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
