@@ -16,6 +16,8 @@ test_script:
         if ($res.FailedCount -gt 0) {
             throw "$($res.FailedCount) tests failed."
         }
+artifacts:
+- path: config.ps1
 deploy:
 - provider: AzureBlob
   storage_account_name: demos6926
@@ -23,7 +25,6 @@ deploy:
     secure: Ld2pEJTjE0ehx2/LP+tFoKETqoxqeApi1SBoCdUBJuDe7q5m1n0MmzQ8rOW5mPx2Fucu42bUBVyFQA5Djbd31iDtvuPqCIihr6fn1w196byhV+Q2FheXqRJLVfQB4te2
   container: dscconfig
   artifact: config.ps1
-
 build: off
 notifications:
 - provider: Slack
