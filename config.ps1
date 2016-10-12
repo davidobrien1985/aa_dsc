@@ -20,8 +20,8 @@
         xFirewall WebFirewallRulehttp
         { 
             Direction = "Inbound" 
-            Name = "Web-Server-TCP-In" 
-            DisplayName = "Web Server (TCP-In)" 
+            Name = "Web-Server-http-In" 
+            DisplayName = "Web Server (http-In)" 
             Enabled = "True"
             Action = "Allow" 
             Protocol = "TCP" 
@@ -31,8 +31,8 @@
         xFirewall WebFirewallRulehttps
         { 
             Direction = "Inbound" 
-            Name = "Web-Server-TCP-In" 
-            DisplayName = "Web Server (TCP-In)" 
+            Name = "Web-Server-https-In" 
+            DisplayName = "Web Server (ThttpsCP-In)" 
             Enabled = "True"
             Action = "Allow" 
             Protocol = "TCP" 
