@@ -1,5 +1,6 @@
 ﻿Configuration trivialweb 
 { 
+    Import-DscResource –ModuleName 'PSDesiredStateConfiguration'
     Import-DscResource -ModuleName cChoco 
     Import-DscResource -ModuleName xNetworking
 
