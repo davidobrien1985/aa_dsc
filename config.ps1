@@ -8,7 +8,7 @@
 
         cChocoInstaller installChoco 
         { 
-            InstallDir = "C:\choco" 
+            InstallDir = "C:/choco" 
         }
 
         WindowsFeature installIIS 
@@ -17,7 +17,7 @@
             Name="Web-Server" 
         }
 
-        xFirewall WebFirewallRule 
+        xFirewall WebFirewallRulehttp
         { 
             Direction = "Inbound" 
             Name = "Web-Server-TCP-In" 
@@ -26,6 +26,17 @@
             Action = "Allow" 
             Protocol = "TCP" 
             LocalPort = "80" 
+            Ensure = "Present" 
+        }
+        xFirewall WebFirewallRulehttps
+        { 
+            Direction = "Inbound" 
+            Name = "Web-Server-TCP-In" 
+            DisplayName = "Web Server (TCP-In)" 
+            Enabled = "True"
+            Action = "Allow" 
+            Protocol = "TCP" 
+            LocalPort = "443" 
             Ensure = "Present" 
         }
     }    
