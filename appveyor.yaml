@@ -32,7 +32,7 @@ deploy:
   artifact: config.ps1
 build: off
 after_deploy:
-- ps: "$pass = ConvertTo-SecureString \"$env:azure_password\" -AsPlainText –Force\n$cred = New-Object -TypeName pscredential –ArgumentList \"$env:azure_user\", $pass\nLogin-AzureRmAccount -Credential $cred -Verbose\nImport-AzureAutomationDscConfiguration -SourcePath config.ps1  -Published -Force\nStart-AzureAutomationDscCompilationJob -ConfigurationName \"trivialweb\""
+- ps: "$pass = ConvertTo-SecureString \"$env:azure_password\" -AsPlainText –Force\n$cred = New-Object -TypeName pscredential –ArgumentList \"$env:azure_user\", $pass\nLogin-AzureRmAccount -Credential $cred -Verbose\nImport-AzureRMAutomationDscConfiguration -SourcePath config.ps1 -ResourceGroupName demos -AutomationAccountName nicconf -Published -Force\nStart-AzureRMAutomationDscCompilationJob -ResourceGroupName demos -AutomationAccountName nicconf -ConfigurationName \"trivialweb\""
 notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
